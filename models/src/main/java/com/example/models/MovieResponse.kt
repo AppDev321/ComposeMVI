@@ -1,4 +1,4 @@
-package com.example.remote.model
+package com.example.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

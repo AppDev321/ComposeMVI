@@ -1,6 +1,6 @@
 package com.example.remote.`interface`
 
-import com.example.remote.model.MovieResponse
+import com.example.models.MovieResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
