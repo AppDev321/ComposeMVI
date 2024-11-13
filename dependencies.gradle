@@ -1,0 +1,97 @@
+ext.app = [
+        minSdk     : 24,
+        targetSdk  : 34,
+        compileSdk : 34
+]
+
+ext.packageId = [
+        namespace: 'com.example.compose',
+        core : 'com.example.compose.core',
+        data : 'com.example.compose.data'
+]
+
+static def addDependency(config, dependency) {
+    [configuration: config, depedency: dependency]
+}
+
+ext.addDepedencies = {
+    DependencyHandler handler, dependencies ->
+        dependencies.each {
+            handler.add(it.configuration, it.depedency) {
+                if (it.group == 'com.squareup.retrofit2') {
+                    if (it.name == 'retrofit' || it.name == 'converter-gson') {
+                        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+                    }
+                } else if (it.group == 'com.giphy.sdk') {
+                    if (it.name == 'ui') {
+                        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+                    }
+                } else if (it.group == 'io.socket') {
+                    if (it.name == 'socket.io-client') {
+                        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+                    }
+                }
+            }
+        }
+}
+
+ext.androidX = [
+        addDependency("implementation", libs.androidx.appcompat),
+        addDependency("implementation",libs.androidx.core.ktx),
+        addDependency("implementation",libs.androidx.lifecycle.runtime.ktx),
+        addDependency("implementation",libs.androidx.lifecycle.viewmodel.ktx),
+        addDependency("implementation",libs.androidx.material3)
+]
+
+ext.compose = [
+        addDependency("implementation",libs.androidx.activity.compose),
+     //   addDependency("implementation",platform(libs.androidx.compose.bom)),
+        addDependency("implementation",libs.androidx.ui),
+        addDependency("implementation",libs.androidx.ui.graphics),
+        addDependency("implementation",libs.androidx.ui.tooling.preview)
+]
+
+ext.androidCoroutines = [
+        addDependency("implementation", libs.androidx.core.ktx),
+        addDependency("implementation", libs.kotlinx.coroutines.core),
+        addDependency("implementation", libs.kotlinx.coroutines.android),
+]
+
+
+ext.retrofit = [
+        addDependency("implementation", libs.gson),
+        addDependency("implementation", libs.retrofit),
+        addDependency("implementation",libs.retrofit.gson),
+        addDependency("implementation", libs.retrofit.scalar.converter),
+        addDependency("implementation", libs.retrofit.converter),
+
+        addDependency("implementation",libs.okHttp),
+        addDependency("implementation",libs.okHttp.logging)
+
+]
+
+ext.roomDatabase = [
+        addDependency("implementation", libs.room.android),
+        addDependency("implementation", libs.room.ktx),
+        addDependency("kapt", libs.room.compiler),
+]
+
+ext.hiltOnly = [
+        addDependency("implementation", libs.hilt),
+        addDependency("kapt", libs.hilt.google.compiler),
+        addDependency("kapt", libs.hilt.androidx.compiler)
+]
+
+ext.hiltAll = [
+        addDependency("implementation", libs.hilt),
+        addDependency("implementation", libs.hilt.worker),
+        addDependency("kapt", libs.hilt.google.android.compiler),
+        addDependency("kapt", libs.hilt.google.compiler),
+        addDependency("kapt", libs.hilt.androidx.compiler),
+        addDependency("kapt", libs.hilt.lifecycle.viewmodel),
+]
+
+
+
+
+

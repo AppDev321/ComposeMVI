@@ -21,4 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeStartProject"
 include(":app")
- 
+
+include(":core:connection")
+include(":core:notification")
+
+include(":data:remote")
+include(":data:database")
