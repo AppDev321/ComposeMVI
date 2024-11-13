@@ -8,11 +8,11 @@ plugins {
 
 android {
     namespace = packageId.core+".notification"
-    compileSdk = app.compileSdk
+
 }
 
 dependencies {
 
-    addDepedencies(dependencies, androidCoroutines)
+    addDepedencies(dependencies, androidCore)
     addDepedencies(dependencies, hiltOnly)
 }

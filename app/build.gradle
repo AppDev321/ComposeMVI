@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.compose"
-        minSdk = 24
+        minSdk = app.minSdk
         targetSdk = app.targetSdk
         versionCode = 1
         versionName = "1.0"
@@ -72,6 +72,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.worker.runtime)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

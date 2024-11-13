@@ -8,4 +8,30 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
 }
+
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin("com.android.library")) {
+            project.android {
+                if (!project.hasProperty("compileSdk")) {
+                    compileSdk = app.compileSdk
+                }
+                compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_1_8
+                    targetCompatibility = JavaVersion.VERSION_1_8
+                }
+                kotlinOptions {
+                    jvmTarget = "1.8"
+                }
+                defaultConfig {
+                    if (!project.hasProperty("minSdk")) {
+                        minSdk = app.minSdk
+                    }
+                }
+            }
+        }
+    }
+}
+
 apply from: 'dependencies.gradle'

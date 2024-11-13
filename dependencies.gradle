@@ -2,6 +2,7 @@ ext.app = [
         minSdk     : 24,
         targetSdk  : 34,
         compileSdk : 34
+
 ]
 
 ext.packageId = [
@@ -40,7 +41,8 @@ ext.androidX = [
         addDependency("implementation",libs.androidx.core.ktx),
         addDependency("implementation",libs.androidx.lifecycle.runtime.ktx),
         addDependency("implementation",libs.androidx.lifecycle.viewmodel.ktx),
-        addDependency("implementation",libs.androidx.material3)
+        addDependency("implementation",libs.androidx.material3),
+        addDependency("implementation",libs.androidx.worker.runtime)
 ]
 
 ext.compose = [
@@ -52,9 +54,12 @@ ext.compose = [
 ]
 
 ext.androidCoroutines = [
-        addDependency("implementation", libs.androidx.core.ktx),
         addDependency("implementation", libs.kotlinx.coroutines.core),
         addDependency("implementation", libs.kotlinx.coroutines.android),
+]
+
+ext.androidCore =[
+        addDependency("implementation", libs.androidx.core.ktx),
 ]
 
 
