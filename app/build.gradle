@@ -65,27 +65,19 @@ dependencies {
     addDepedencies(dependencies , androidX)
     addDepedencies(dependencies , androidCoroutines)
     addDepedencies(dependencies , composeFull)
+
+
     implementation platform(libs.androidx.compose.bom)
     androidTestImplementation platform(libs.androidx.compose.bom)
 
-    
+
     implementation project(':domain')
     implementation project(':models')
+    implementation project(':data:remote')
 
 
+    addDepedencies(dependencies, hiltAll)
 
-
-    //Hilt
-    /*implementation(libs.hilt)
-    implementation(libs.hilt.worker)
-    kapt(libs.hilt.google.android.compiler)
-    kapt(libs.hilt.google.compiler)
-    kapt(libs.hilt.androidx.compiler)
-    kapt(libs.hilt.lifecycle.viewmodel)
-*/
-    addDepedencies(dependencies ,hiltAll)
-
-    implementation(libs.open.csv)
 
     //Room Database
     addDepedencies(dependencies ,roomDatabase)
