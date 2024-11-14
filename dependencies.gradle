@@ -8,7 +8,8 @@ ext.app = [
 ext.packageId = [
         namespace: 'com.example.compose',
         core : 'com.example.compose.core',
-        data : 'com.example.compose.data'
+        data : 'com.example.compose.data',
+        domain : 'com.example.compose.domain'
 ]
 
 static def addDependency(config, dependency) {
@@ -45,9 +46,9 @@ ext.androidX = [
         addDependency("implementation",libs.androidx.worker.runtime)
 ]
 
-ext.compose = [
+ext.composeFull = [
         addDependency("implementation",libs.androidx.activity.compose),
-     //   addDependency("implementation",platform(libs.androidx.compose.bom)),
+         //  addDependency("implementation",platform(libs.androidx.compose.bom)),
         addDependency("implementation",libs.androidx.ui),
         addDependency("implementation",libs.androidx.ui.graphics),
         addDependency("implementation",libs.androidx.ui.tooling.preview)

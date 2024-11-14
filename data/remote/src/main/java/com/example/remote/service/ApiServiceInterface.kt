@@ -1,4 +1,4 @@
-package com.example.remote.`interface`
+package com.example.remote.service
 
 import com.example.models.MovieResponse
 import retrofit2.Response

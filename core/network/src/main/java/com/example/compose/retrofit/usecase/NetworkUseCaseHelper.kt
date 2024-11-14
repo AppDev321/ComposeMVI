@@ -32,7 +32,6 @@ abstract class NetworkUseCaseHelper<T, Params> {
         private const val SOMETHING_WENT_WRONG = "Something went wrong , please try again later"
     }
 
-
     private val useCaseListener: UseCaseListener? = null
     abstract suspend fun buildUseCase(params: Params?): Response<T>
 

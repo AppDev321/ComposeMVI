@@ -11,8 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,15 +21,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.R
-import com.example.compose.presentation.viewmodel.ApiViewModel
 import com.example.compose.ui.compose.ButtonType
 import com.example.compose.ui.compose.ButtonWidget
 import com.example.compose.ui.compose.Spacing
 import com.example.compose.ui.compose.TextWithHorizontalLine
 
 @Composable
-fun StartScreen(apiViewModel: ApiViewModel) {
- val loadingApi by apiViewModel.loadingApi.collectAsState(false)
+fun StartScreen() {
+
     Box(
         modifier = Modifier
             .background(Color.Blue)
@@ -72,12 +69,12 @@ fun StartScreen(apiViewModel: ApiViewModel) {
                 ButtonWidget(
                     text = "Create an account",
                     onClick = {
-                        apiViewModel.getListing()
+
 
                     },
                     buttonType = ButtonType.fill,
-                    isLoading = loadingApi, // Pass the isLoading state here
-                    isEnabled= !loadingApi
+                    isLoading = false, // Pass the isLoading state here
+                    isEnabled= true
                 )
                 Spacing.sizeVerticalMedium()
                 TextWithHorizontalLine("Or SignIn with email")

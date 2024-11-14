@@ -64,7 +64,7 @@ fun SplashScreen(splashScreenViewModel: SplashScreenViewModel) {
 
         // Text at the bottom of the screen
         Text(
-            text = "Datsarap",
+            text = state.value.data,
             style = TextStyle(
                 fontSize = 25.sp,
                 fontWeight = FontWeight.W500,

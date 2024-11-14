@@ -1,8 +1,4 @@
 [versions]
-namespace = "com.example.compose"
-compileSdk = "34"
-targetSdk = "34"
-
 agp = "8.6.1"
 kotlin = "2.0.20"
 hilt = "2.52"

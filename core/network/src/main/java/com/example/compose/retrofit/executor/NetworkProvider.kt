@@ -35,7 +35,6 @@ import javax.inject.Singleton
 class NetworkProvider @Inject constructor(gson: Gson, baseURL: String) {
     private var retrofit: Retrofit
 
-
     /*   @Inject
        lateinit var preferenceManager: PreferenceManager
    */

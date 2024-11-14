@@ -16,6 +16,7 @@ dependencies {
     addDepedencies(dependencies, androidCore)
     addDepedencies(dependencies, retrofit)
     addDepedencies(dependencies, hiltOnly)
-    implementation project(':core:remote')
+    implementation project(':core:network')
     implementation project(':models')
+  implementation project(':domain')
 }
