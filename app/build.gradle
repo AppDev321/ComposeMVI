@@ -70,7 +70,7 @@ dependencies {
     implementation platform(libs.androidx.compose.bom)
     androidTestImplementation platform(libs.androidx.compose.bom)
 
-
+    implementation project(':core:common')
     implementation project(':domain')
     implementation project(':models')
     implementation project(':data:remote')
